@@ -5,10 +5,11 @@ import WelcomeScreen from './screens/WelcomeScreen';
 import AppButton from './components/AppButton';
 import Card from './components/Card/Card';
 import ListingDetailsScreen from './screens/ListingDetailsScreen';
+import MessagesScreen from './screens/MessagesScreen';
 
 const App = () => {
   return (
-    <ViewImageScreen />
+    <MessagesScreen />
   );
 }
 
