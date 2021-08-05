@@ -11,7 +11,6 @@ import FontAwesome, {
 
 const ViewImageScreen = () => {
 
-    const parsedIcon = parseIconFromClassName('fas fa-times');
     return (
         <View style={styles.container} >
             <View style={styles.closeButton} >
