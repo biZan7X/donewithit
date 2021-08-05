@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
 
 import ListItem from '../components/ListItem';
+import ListItemSeparator from '../components/ListItemSeparator';
 import Screen from "../components/Screen"
 
 const MessagesScreen = () => {
@@ -33,6 +34,7 @@ const MessagesScreen = () => {
             <FlatList
                 data={messages}
                 keyExtractor={(message) => message.id.toString()}
+                ItemSeparatorComponent={() => <ListItemSeparator />}
                 renderItem={({item}) => (
                     <ListItem 
                         title={item.title}
