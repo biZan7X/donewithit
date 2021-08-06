@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {TouchableWithoutFeedback, View} from 'react-native';
 
 import styles from "./styles"
 import FontAwesome, {
@@ -9,11 +9,14 @@ import FontAwesome, {
     parseIconFromClassName,
   } from 'react-native-fontawesome';
 
-const ListItemDeleteAction = () => {
+const ListItemDeleteAction = ({onPress}) => {
     return (
-        <View style={styles.container} >
-            <FontAwesome style={{fontSize:25}} icon={SolidIcons.trashAlt} />
-        </View>
+        <TouchableWithoutFeedback onPress={onPress} >
+            <View style={styles.container} >
+                <FontAwesome style={{fontSize:25}} icon={SolidIcons.trashAlt} />
+            </View>
+        </TouchableWithoutFeedback>
+        
     );
 }
 
