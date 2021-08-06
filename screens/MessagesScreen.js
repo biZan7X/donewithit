@@ -40,6 +40,7 @@ const MessagesScreen = () => {
                         title={item.title}
                         subTitle={item.details}
                         image={item.image}
+                        onPress={() => console.log("message recieved",item)}
                     />
                 )}
             />
