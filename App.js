@@ -10,12 +10,13 @@ import Screen from './components/Screen';
 import Icon from "./components/Icon"
 import AppButton from './components/AppButton';
 import Card from './components/Card/Card';
+import ListItem from './components/ListItem';
 
 
 const App = () => {
   return (
     <Screen>
-      <Icon name="timesCircle" backgroundColor="red" />
+      <ListItem title="Hello"  ImageComponent={() => <Icon name="timesCircle" backgroundColor="red" />} />
     </Screen>
   );
 }

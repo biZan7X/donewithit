@@ -7,6 +7,11 @@ export default StyleSheet.create({
         flexDirection: "row",
         padding: 15
     },
+    detailsContainer:{
+        marginLeft: 10,
+        justifyContent: "center",
+        alignItems: "center"
+    },
     image: {
         width: 70,
         height: 70,
