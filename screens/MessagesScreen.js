@@ -31,6 +31,7 @@ const initialMessages = [
 const MessagesScreen = () => {
 
     const[messages,setMessages] = useState(initialMessages);
+    const[refreshing,setRefreshing] = useState(false);
     
     const handleDelete = (messgae) => {
         //TODO delete the message from the state
@@ -45,6 +46,8 @@ const MessagesScreen = () => {
                 data={messages}
                 keyExtractor={(message) => message.id.toString()}
                 ItemSeparatorComponent={() => <ListItemSeparator />}
+                refreshing={refreshing}
+                onRefresh={() => setMessages(initialMessages)}
                 renderItem={({item}) => (
                     <ListItem 
                         title={item.title}
