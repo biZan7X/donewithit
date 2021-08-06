@@ -5,12 +5,12 @@ import colors from "../../config/color"
 export default StyleSheet.create({
     container: {
         flexDirection: "row",
-        padding: 15
+        padding: 15,
+        backgroundColor: colors.light
     },
     detailsContainer:{
         marginLeft: 10,
         justifyContent: "center",
-        alignItems: "center"
     },
     image: {
         width: 70,

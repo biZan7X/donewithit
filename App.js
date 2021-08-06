@@ -5,6 +5,7 @@ import ViewImageScreen from './screens/ViewImageScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
 import ListingDetailsScreen from './screens/ListingDetailsScreen';
 import MessagesScreen from './screens/MessagesScreen';
+import AccountScreen from './screens/AccountScreen';
 
 import Screen from './components/Screen';
 import Icon from "./components/Icon"
@@ -15,9 +16,7 @@ import ListItem from './components/ListItem';
 
 const App = () => {
   return (
-    <Screen>
-      <ListItem title="Hello"  ImageComponent={() => <Icon name="timesCircle" backgroundColor="red" />} />
-    </Screen>
+    <AccountScreen />
   );
 }
 
