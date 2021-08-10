@@ -12,11 +12,6 @@ export default StyleSheet.create({
         marginVertical: 10,
         alignItems: "center"
     },
-    textInput: {
-        fontSize: 18,
-        fontFamily: Platform.OS === 'android' ? "Roboto" : "Avenir",
-        color: colors.dark,
-    },
     icon: {
         fontSize: 25,
         color: colors.medium,
