@@ -13,11 +13,14 @@ import Icon from "./components/Icon"
 import AppButton from './components/AppButton';
 import Card from './components/Card/Card';
 import ListItem from './components/ListItem';
+import AppTextInput from './components/AppTextInput';
 
 
 const App = () => {
   return (
-    <ListingScreen />
+    <Screen>
+      <AppTextInput icons="paper-plane" placeholder="hello" />
+    </Screen>
   );
 }
 
