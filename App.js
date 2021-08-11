@@ -14,12 +14,14 @@ import AppButton from './components/AppButton';
 import Card from './components/Card/Card';
 import ListItem from './components/ListItem';
 import AppTextInput from './components/AppTextInput';
+import AppPicker from './components/AppPicker.js';
 
 
 const App = () => {
   return (
     <Screen>
-      <AppTextInput icons="paper-plane" placeholder="hello" />
+      <AppPicker icons="play-circle" placeholder="Category" />
+      <AppTextInput icons="paper-plane" placeholder="email" />
     </Screen>
   );
 }
