@@ -13,7 +13,7 @@ import Screen from '../Screen';
 import PickerItem from '../PickerItem';
 
 
-const AppPicker = ({icons,items,placeholder}) => {
+const AppPicker = ({icons,items,placeholder,selectedItem,onSelectItem}) => {
 
     const [modalVisible,setModalVisible] = useState(false);
 
@@ -22,7 +22,7 @@ const AppPicker = ({icons,items,placeholder}) => {
             <TouchableWithoutFeedback onPress={() => setModalVisible(true)} >
                 <View style={styles.container} >
                     { icons && <FontAwesome style={styles.icon} icon={SolidIcons[icons]}/>}
-                    <AppText customStyle={styles.text} >{placeholder}</AppText>
+                    <AppText customStyle={styles.text} >{selectedItem ? selectedItem.label : placeholder}</AppText>
                     <FontAwesome style={[styles.icon,{marginRight: 0,}]} icon={SolidIcons["caret-square-down"]}/>
                 </View>
             </TouchableWithoutFeedback>
@@ -32,7 +32,10 @@ const AppPicker = ({icons,items,placeholder}) => {
                     <FlatList 
                         data={items}
                         keyExtractor={(item) => item.value.toString()}
-                        renderItem={({item}) => <PickerItem label={item.label} onPress={() => console.log(item)} />}
+                        renderItem={({item}) => <PickerItem label={item.label} onPress={() => {
+                            onSelectItem(item)
+                            setModalVisible(false)
+                        }} />}
                     />
                 </Screen>
             </Modal>
