@@ -17,10 +17,16 @@ import AppTextInput from './components/AppTextInput';
 import AppPicker from './components/AppPicker.js';
 
 
+const Category = [
+  {label: "Chair", value: 1 },
+  {label: "Table", value: 2 },
+  {label: "Clothes", value: 3 },
+]
+
 const App = () => {
   return (
     <Screen>
-      <AppPicker icons="play-circle" placeholder="Category" />
+      <AppPicker items={Category} icons="play-circle" placeholder="Category" />
       <AppTextInput icons="paper-plane" placeholder="email" />
     </Screen>
   );
