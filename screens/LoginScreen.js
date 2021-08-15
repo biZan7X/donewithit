@@ -3,10 +3,6 @@ import {StyleSheet, Image} from 'react-native';
 import * as yup from 'yup';
 
 import Screen from '../components/Screen';
-// import AppTextInput from '../components/AppTextInput';
-// import AppButton from '../components/AppButton';
-// import AppText from '../components/AppText';
-// import ErrorMessage from '../components/ErrorMessage';
 import AppFormField from '../components/AppFormField';
 import SubmitButton from '../components/SubmitButton';
 import AppForm from '../components/AppForm';

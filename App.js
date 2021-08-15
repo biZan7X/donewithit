@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {View, StyleSheet} from 'react-native';
-import LoginScreen from './screens/LoginScreen';
+import ListingEditScreen from './screens/ListingEditScreen';
 
 const App = () => {
-  return <LoginScreen />;
+  return <ListingEditScreen />;
 };
 
 export default App;
