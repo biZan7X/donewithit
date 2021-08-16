@@ -1,7 +1,12 @@
 import React from 'react';
 import {View, Image, TouchableHighlight} from 'react-native';
-
 import Swipeable from 'react-native-gesture-handler/Swipeable';
+import FontAwesome, {
+  SolidIcons,
+  RegularIcons,
+  BrandIcons,
+  parseIconFromClassName,
+} from 'react-native-fontawesome';
 
 import styles from './styles';
 import colors from '../../config/color';
@@ -27,6 +32,10 @@ const ListItem = ({
               <AppText customStyle={styles.subTitle}>{subTitle}</AppText>
             )}
           </View>
+          <FontAwesome
+            style={{color: colors.medium, fontSize: 25}}
+            icon={SolidIcons['caret-square-right']}
+          />
         </View>
       </TouchableHighlight>
     </Swipeable>
