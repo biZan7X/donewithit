@@ -27,9 +27,13 @@ const ListItem = ({
           {IconComponent && <IconComponent />}
           {image && <Image style={styles.image} source={image} />}
           <View style={styles.detailsContainer}>
-            <AppText customStyle={styles.title}>{title}</AppText>
+            <AppText customStyle={styles.title} numberOfLines={1}>
+              {title}
+            </AppText>
             {subTitle && (
-              <AppText customStyle={styles.subTitle}>{subTitle}</AppText>
+              <AppText customStyle={styles.subTitle} numberOfLines={2}>
+                {subTitle}
+              </AppText>
             )}
           </View>
           <FontAwesome
