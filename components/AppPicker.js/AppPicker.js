@@ -24,6 +24,7 @@ const AppPicker = ({
   icons,
   items,
   placeholder,
+  PickerItemComponent = PickerItem,
   selectedItem,
   onSelectItem,
   width = '100%',
@@ -56,7 +57,7 @@ const AppPicker = ({
             data={items}
             keyExtractor={item => item.value.toString()}
             renderItem={({item}) => (
-              <PickerItem
+              <PickerItemComponent
                 label={item.label}
                 onPress={() => {
                   onSelectItem(item);
