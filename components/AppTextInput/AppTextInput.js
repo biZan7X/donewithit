@@ -11,9 +11,9 @@ import styles from './styles';
 import defaultStyles from '../../config/styles';
 import colors from '../../config/color';
 
-const AppTextInput = ({icons, ...otherProps}) => {
+const AppTextInput = ({icons, width = '100%', ...otherProps}) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {width}]}>
       {icons && <FontAwesome style={styles.icon} icon={SolidIcons[icons]} />}
       <TextInput
         placeholderTextColor={colors.medium}

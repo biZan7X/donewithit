@@ -20,13 +20,20 @@ import AppText from '../AppText';
 import Screen from '../Screen';
 import PickerItem from '../PickerItem';
 
-const AppPicker = ({icons, items, placeholder, selectedItem, onSelectItem}) => {
+const AppPicker = ({
+  icons,
+  items,
+  placeholder,
+  selectedItem,
+  onSelectItem,
+  width = '100%',
+}) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container, {width}]}>
           {icons && (
             <FontAwesome style={styles.icon} icon={SolidIcons[icons]} />
           )}
