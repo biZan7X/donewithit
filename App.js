@@ -3,6 +3,7 @@ import {View, StyleSheet, Button, Image} from 'react-native';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
 import Screen from './components/Screen';
+import ImageInput from './components/ImageInput';
 import ListingEditScreen from './screens/ListingEditScreen';
 
 const App = () => {
@@ -55,6 +56,7 @@ const App = () => {
     <Screen>
       <Button title="Choose an image" onPress={() => chooseImage()} />
       {rednerImage()}
+      <ImageInput imageUri={imageUri} />
     </Screen>
   );
 };
