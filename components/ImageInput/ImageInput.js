@@ -16,7 +16,7 @@ import FontAwesome, {
 
 import styles from './styles';
 
-const ImageInput = ({imageUri, setImageUri}) => {
+const ImageInput = ({imageUri, onChangeImage}) => {
   //* LAUNCHING THE IMAGE LIBRARY
   const chooseImage = () => {
     const options = {
@@ -42,7 +42,7 @@ const ImageInput = ({imageUri, setImageUri}) => {
         console.log('User tapped custom button: ', response.customButton);
         alert(response.customButton);
       } else {
-        setImageUri(response.assets[0].uri); //* grabbing the image from the gallery and storing the location
+        onChangeImage(response.assets[0].uri); //* grabbing the image from the gallery and storing the location
         console.log('response', JSON.stringify(response));
       }
     });
@@ -54,7 +54,7 @@ const ImageInput = ({imageUri, setImageUri}) => {
       Alert.alert('Delete', 'Are you sure you want to delete this image?', [
         {
           text: 'Yes',
-          onPress: () => setImageUri(null),
+          onPress: () => onChangeImage(imageUri),
         },
         {
           text: 'No',
