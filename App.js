@@ -56,7 +56,7 @@ const App = () => {
     <Screen>
       <Button title="Choose an image" onPress={() => chooseImage()} />
       {rednerImage()}
-      <ImageInput imageUri={imageUri} />
+      <ImageInput imageUri={imageUri} setImageUri={setImageUri} />
     </Screen>
   );
 };

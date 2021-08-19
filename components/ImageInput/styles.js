@@ -14,6 +14,7 @@ export default StyleSheet.create({
   },
   icon: {
     color: colors.medium,
+    fontSize: 35,
   },
   image: {
     height: '100%',
