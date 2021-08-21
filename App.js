@@ -7,6 +7,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Screen from './components/Screen';
 import ListingEditScreen from './screens/ListingEditScreen';
 
+import navigationTheme from './navigations/navigationTheme';
 import AuthNavigator from './navigations/AuthNavigator';
 
 // const Stack = createNativeStackNavigator();
@@ -38,7 +39,7 @@ import AuthNavigator from './navigations/AuthNavigator';
 
 const App = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={navigationTheme}>
       <AuthNavigator />
     </NavigationContainer>
   );
