@@ -9,38 +9,12 @@ import ListingEditScreen from './screens/ListingEditScreen';
 
 import navigationTheme from './navigations/navigationTheme';
 import AuthNavigator from './navigations/AuthNavigator';
-
-// const Stack = createNativeStackNavigator();
-
-// const Tweets = () => {
-//   return (
-//     <View>
-//       <Text>Tweets</Text>
-//     </View>
-//   );
-// };
-
-// const TweetDetails = () => {
-//   return (
-//     <View>
-//       <Text>Details</Text>
-//     </View>
-//   );
-// };
-
-// const StackNavigator = () => {
-//   return (
-//     <Stack.Navigator>
-//       <Stack.Screen name="Tweets" component={Tweets} />
-//       <Stack.Screen name="Details" component={TweetDetails} />
-//     </Stack.Navigator>
-//   );
-// };
+import AppNavigator from './navigations/AppNavigator';
 
 const App = () => {
   return (
     <NavigationContainer theme={navigationTheme}>
-      <AuthNavigator />
+      <AppNavigator />
     </NavigationContainer>
   );
 };
