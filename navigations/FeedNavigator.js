@@ -8,9 +8,13 @@ const Stack = createNativeStackNavigator();
 
 const FeedNavigator = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator mode="modal">
       <Stack.Screen name="Listings" component={ListingScreen} />
-      <Stack.Screen name="ListingDetails" component={ListingDetailsScreen} />
+      <Stack.Screen
+        name="ListingDetails"
+        component={ListingDetailsScreen}
+        options={{presentation: 'modal'}}
+      />
     </Stack.Navigator>
   );
 };
