@@ -5,6 +5,8 @@ import ListingScreen from '../screens/ListingScreen';
 import ListingEditScreen from '../screens/ListingEditScreen';
 import AccountScreen from '../screens/AccountScreen';
 
+import routes from './routes';
+
 import FeedNavigator from './FeedNavigator';
 import AccountNavigator from './AccountNavigator';
 
@@ -23,7 +25,7 @@ const AppNavigator = () => {
   return (
     <Tab.Navigator screenOptions={{headerShown: false}}>
       <Tab.Screen
-        name="Feed"
+        name={routes.FEEDNAV}
         component={FeedNavigator}
         options={({}) => ({
           tabBarIcon: ({color, size}) => (
@@ -35,7 +37,7 @@ const AppNavigator = () => {
         })}
       />
       <Tab.Screen
-        name="ListingEdit"
+        name={routes.LISTINGEDIT}
         component={ListingEditScreen}
         options={({navigation}) => ({
           tabBarButton: () => (
@@ -52,7 +54,7 @@ const AppNavigator = () => {
         })}
       />
       <Tab.Screen
-        name="Account"
+        name={routes.ACCOUNTNAV}
         component={AccountNavigator}
         options={({}) => ({
           tabBarIcon: ({color, size}) => (

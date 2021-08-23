@@ -6,6 +6,7 @@ import ListItemSeparator from '../components/ListItemSeparator';
 import Screen from '../components/Screen';
 
 import colors from '../config/color';
+import routes from '../navigations/routes';
 
 const menuItems = [
   {
@@ -22,7 +23,7 @@ const menuItems = [
       name: 'paper-plane',
       backgroundColor: colors.secondary,
     },
-    targetScreen: 'Messages',
+    targetScreen: routes.MESSAGES,
   },
 ];
 
