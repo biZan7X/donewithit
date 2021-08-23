@@ -14,6 +14,7 @@ const menuItems = [
       name: 'list-alt',
       backgroundColor: colors.primary,
     },
+    targetScreen: '',
   },
   {
     title: 'My email',
@@ -21,10 +22,11 @@ const menuItems = [
       name: 'paper-plane',
       backgroundColor: colors.secondary,
     },
+    targetScreen: 'Messages',
   },
 ];
 
-const AccountScreen = () => {
+const AccountScreen = ({navigation}) => {
   return (
     <Screen>
       <View style={styles.container}>
@@ -48,11 +50,17 @@ const AccountScreen = () => {
                   backgroundColor={item.icon.backgroundColor}
                 />
               )}
+              onPress={() => navigation.navigate(item.targetScreen)}
             />
           )}
         />
       </View>
-      <ListItem title="Log Out" IconComponent={() => <Icon name="sign-out-alt" backgroundColor="#ffe66d" />} />
+      <ListItem
+        title="Log Out"
+        IconComponent={() => (
+          <Icon name="sign-out-alt" backgroundColor="#ffe66d" />
+        )}
+      />
     </Screen>
   );
 };
@@ -63,7 +71,7 @@ const styles = StyleSheet.create({
   },
   screen: {
     backgroundColor: colors.white,
-  }
+  },
 });
 
 export default AccountScreen;
