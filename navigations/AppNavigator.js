@@ -8,14 +8,61 @@ import AccountScreen from '../screens/AccountScreen';
 import FeedNavigator from './FeedNavigator';
 import AccountNavigator from './AccountNavigator';
 
+import NewListingButton from './NewListingButton';
+
+import FontAwesome, {
+  SolidIcons,
+  RegularIcons,
+  BrandIcons,
+  parseIconFromClassName,
+} from 'react-native-fontawesome';
+
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
   return (
     <Tab.Navigator screenOptions={{headerShown: false}}>
-      <Tab.Screen name="Feed" component={FeedNavigator} />
-      <Tab.Screen name="ListingEdit" component={ListingEditScreen} />
-      <Tab.Screen name="Account" component={AccountNavigator} />
+      <Tab.Screen
+        name="Feed"
+        component={FeedNavigator}
+        options={({}) => ({
+          tabBarIcon: ({color, size}) => (
+            <FontAwesome
+              icon={SolidIcons['list-alt']}
+              style={{color: color, fontSize: size}}
+            />
+          ),
+        })}
+      />
+      <Tab.Screen
+        name="ListingEdit"
+        component={ListingEditScreen}
+        options={({navigation}) => ({
+          tabBarButton: () => (
+            <NewListingButton
+              onPress={() => navigation.navigate('ListingEdit')}
+            />
+          ),
+          tabBarIcon: ({color, size}) => (
+            <FontAwesome
+              icon={SolidIcons['plus-square']}
+              style={{color: color, fontSize: size}}
+            />
+          ),
+        })}
+      />
+      <Tab.Screen
+        name="Account"
+        component={AccountNavigator}
+        options={({}) => ({
+          tabBarIcon: ({color, size}) => (
+            <FontAwesome
+              icon={SolidIcons['user-circle']}
+              style={{color: color, fontSize: size}}
+            />
+          ),
+        })}
+      />
     </Tab.Navigator>
   );
 };
