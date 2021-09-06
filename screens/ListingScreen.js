@@ -13,24 +13,19 @@ import routes from '../navigations/routes';
 
 import listingApi from '../api/listing';
 
+import useApis from '../hooks/useApis';
+
 const ListingScreen = ({navigation}) => {
-  const [listings, setListings] = useState([]);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const {
+    data: listings,
+    error,
+    loading,
+    request: loadListings,
+  } = useApis(listingApi.getListings);
 
   useEffect(() => {
     loadListings();
   }, []);
-
-  const loadListings = async () => {
-    setLoading(true);
-    const res = await listingApi.getListings();
-    setLoading(false);
-    if (!res.ok) return setError(true);
-
-    setError(false);
-    setListings(res.data);
-  };
 
   return (
     <Screen style={styles.screen}>
