@@ -10,11 +10,13 @@ import Screen from '../components/Screen';
 import CategoryPickerItem from '../components/CategoryPickerItem';
 import AppImageFormPicker from '../components/AppImageFormPicker/AppImageFormPicker';
 
+import listingApis from '../api/listing';
+
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label('Title'),
   price: Yup.number().required().min(1).max(10000).label('Price'),
   description: Yup.string().label('Description'),
-  category: Yup.object().required().nullable().label('Category'),
+  category: Yup.object().nullable().label('Category'),
   images: Yup.array().min(1, 'Please select atleast one image.'),
 });
 
@@ -25,6 +27,16 @@ const categories = [
 ];
 
 function ListingEditScreen() {
+  const location = 'TODO';
+
+  const handleSubmit = async listing => {
+    console.log(listing);
+    const res = await listingApis.addListings({...listing, location});
+    if (!res.ok)
+      return alert('The upload was not successful, Please try again.');
+    alert('Successful');
+  };
+
   return (
     <Screen style={styles.container}>
       <AppForm
@@ -35,7 +47,7 @@ function ListingEditScreen() {
           category: null,
           images: [],
         }}
-        onSubmit={values => console.log(values)}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}>
         <AppImageFormPicker name="images" />
         <AppFormField maxLength={255} name="title" placeholder="Title" />

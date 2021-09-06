@@ -19,6 +19,7 @@ import styles from './styles';
 import AppText from '../AppText';
 import Screen from '../Screen';
 import PickerItem from '../PickerItem';
+import {useFormikContext} from 'formik';
 
 const AppPicker = ({
   icons,
@@ -29,8 +30,10 @@ const AppPicker = ({
   selectedItem,
   onSelectItem,
   width = '100%',
+  name,
 }) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const {setFieldValue, values} = useFormikContext();
 
   return (
     <>
@@ -39,8 +42,8 @@ const AppPicker = ({
           {icons && (
             <FontAwesome style={styles.icon} icon={SolidIcons[icons]} />
           )}
-          {selectedItem ? (
-            <AppText customStyle={styles.text}>{selectedItem.label}</AppText>
+          {values[name] ? (
+            <AppText customStyle={styles.text}>{values[name].label}</AppText>
           ) : (
             <AppText customStyle={styles.placeholder}>{placeholder}</AppText>
           )}
@@ -63,7 +66,7 @@ const AppPicker = ({
                 item={item}
                 label={item.label}
                 onPress={() => {
-                  onSelectItem(item);
+                  setFieldValue(name, item);
                   setModalVisible(false);
                 }}
               />

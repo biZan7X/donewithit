@@ -19,8 +19,8 @@ const addListings = listing => {
     });
   });
 
-  if (listing.location)
-    data.append('location', JSON.stringify(listing.location));
+  // if (listing.location)
+  //   data.append('location', JSON.stringify(listing.location));
 
   return apiClient.post(endpoint, data);
 };
