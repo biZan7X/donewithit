@@ -7,6 +7,7 @@ import Card from '../components/Card';
 import Screen from '../components/Screen';
 import AppText from '../components/AppText';
 import AppButton from '../components/AppButton';
+import AnimationActivity from '../components/AnimationActivity';
 
 import routes from '../navigations/routes';
 
@@ -14,14 +15,17 @@ import listingApi from '../api/listing';
 
 const ListingScreen = ({navigation}) => {
   const [listings, setListings] = useState([]);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     loadListings();
   }, []);
 
   const loadListings = async () => {
+    setLoading(true);
     const res = await listingApi.getListings();
+    setLoading(false);
     if (!res.ok) return setError(true);
 
     setError(false);
@@ -30,6 +34,7 @@ const ListingScreen = ({navigation}) => {
 
   return (
     <Screen style={styles.screen}>
+      <AnimationActivity visible={loading} />
       {error && (
         <>
           <AppText>Something went wrong could not load the listings..</AppText>

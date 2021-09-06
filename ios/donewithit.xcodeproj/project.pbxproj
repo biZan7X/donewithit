@@ -15,6 +15,7 @@
 		586DE60B36C6A33D40F73D1E /* libPods-donewithit-donewithitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B73AAB7DD9A763C4B5E1B9E2 /* libPods-donewithit-donewithitTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9FA7A93426BBF4DC005197DB /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 9FA7A93326BBF4DC005197DB /* fonts */; };
+		9FD734DF26E64BE200D38092 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD734DE26E64BE200D38092 /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = donewithit/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		901D5440DC3412123DCDF2E8 /* Pods-donewithit-donewithitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-donewithit-donewithitTests.debug.xcconfig"; path = "Target Support Files/Pods-donewithit-donewithitTests/Pods-donewithit-donewithitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9FA7A93326BBF4DC005197DB /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		9FD734DD26E64BE200D38092 /* donewithit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "donewithit-Bridging-Header.h"; sourceTree = "<group>"; };
+		9FD734DE26E64BE200D38092 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		B73AAB7DD9A763C4B5E1B9E2 /* libPods-donewithit-donewithitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-donewithit-donewithitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E252BAE2536603DCE4612AFE /* libPods-donewithit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-donewithit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -118,6 +121,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				9FD734DE26E64BE200D38092 /* File.swift */,
 				9FA7A93326BBF4DC005197DB /* fonts */,
 				13B07FAE1A68108700A75B9A /* donewithit */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -125,6 +129,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				B2F91E4BEF8218260397B0B0 /* Pods */,
+				9FD734DD26E64BE200D38092 /* donewithit-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -210,7 +215,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1250;
 					};
 				};
 			};
@@ -415,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				9FD734DF26E64BE200D38092 /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +440,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 901D5440DC3412123DCDF2E8 /* Pods-donewithit-donewithitTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -461,6 +468,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0D6DE894314C1F844C125E87 /* Pods-donewithit-donewithitTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = donewithitTests/Info.plist;
@@ -501,6 +509,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = donewithit;
+				SWIFT_OBJC_BRIDGING_HEADER = "donewithit-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -526,6 +535,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = donewithit;
+				SWIFT_OBJC_BRIDGING_HEADER = "donewithit-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
