@@ -36,21 +36,28 @@ function ListingEditScreen() {
   const handleSubmit = async (listing, {resetForm}) => {
     setProgress(0);
     setUploadVisible(true);
+
     const res = await listingApis.addListings(
       {...listing, location},
       progress => setProgress(progress),
     );
-    setUploadVisible(false);
-    if (!res.ok)
+
+    //! Error in api
+    if (!res.ok) {
+      setUploadVisible(false);
       return alert('The upload was not successful, Please try again.');
-    alert('Successful');
+    }
 
     resetForm({values: ''});
   };
 
   return (
     <Screen style={styles.container}>
-      <UploadScreen progress={progress} visible={uploadVisible} />
+      <UploadScreen
+        progress={progress}
+        visible={uploadVisible}
+        done={() => setUploadVisible(false)}
+      />
       <AppForm
         initialValues={{
           title: '',
