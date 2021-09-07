@@ -29,12 +29,17 @@ const categories = [
 function ListingEditScreen() {
   const location = 'TODO';
 
-  const handleSubmit = async listing => {
+  const handleSubmit = async (listing, {resetForm}) => {
     console.log(listing);
-    const res = await listingApis.addListings({...listing, location});
+    const res = await listingApis.addListings(
+      {...listing, location},
+      progress => console.log(progress),
+    );
     if (!res.ok)
       return alert('The upload was not successful, Please try again.');
     alert('Successful');
+
+    resetForm({values: ''});
   };
 
   return (
