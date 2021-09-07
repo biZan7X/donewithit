@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet} from 'react-native';
 import * as Yup from 'yup';
 
@@ -10,13 +10,15 @@ import Screen from '../components/Screen';
 import CategoryPickerItem from '../components/CategoryPickerItem';
 import AppImageFormPicker from '../components/AppImageFormPicker/AppImageFormPicker';
 
+import UploadScreen from './UploadScreen';
+
 import listingApis from '../api/listing';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label('Title'),
   price: Yup.number().required().min(1).max(10000).label('Price'),
   description: Yup.string().label('Description'),
-  category: Yup.object().nullable().label('Category'),
+  category: Yup.object().required().nullable().label('Category'),
   images: Yup.array().min(1, 'Please select atleast one image.'),
 });
 
@@ -28,13 +30,17 @@ const categories = [
 
 function ListingEditScreen() {
   const location = 'TODO';
+  const [progress, setProgress] = useState(0);
+  const [uploadVisible, setUploadVisible] = useState(false);
 
   const handleSubmit = async (listing, {resetForm}) => {
-    console.log(listing);
+    setProgress(0);
+    setUploadVisible(true);
     const res = await listingApis.addListings(
       {...listing, location},
-      progress => console.log(progress),
+      progress => setProgress(progress),
     );
+    setUploadVisible(false);
     if (!res.ok)
       return alert('The upload was not successful, Please try again.');
     alert('Successful');
@@ -44,6 +50,7 @@ function ListingEditScreen() {
 
   return (
     <Screen style={styles.container}>
+      <UploadScreen progress={progress} visible={uploadVisible} />
       <AppForm
         initialValues={{
           title: '',
