@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Image, TouchableOpacity} from 'react-native';
+import {View, TouchableOpacity} from 'react-native';
+import FastImage from 'react-native-fast-image';
 
 import AppText from '../AppText';
 import styles from './styles';
@@ -8,7 +9,7 @@ const Card = ({imageUrl, title, subTitle, onPress}) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.card}>
-        <Image style={styles.image} source={{uri: imageUrl}} />
+        <FastImage style={styles.image} source={{uri: imageUrl}} />
         <View style={styles.detailsContainer}>
           <AppText customStyle={styles.title} numberOfLines={1}>
             {title}

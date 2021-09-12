@@ -1,5 +1,7 @@
 import React from 'react';
-import {View, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import FastImage from 'react-native-fast-image';
+
 import AppText from '../components/AppText';
 import ListItem from '../components/ListItem';
 
@@ -9,7 +11,7 @@ const ListingDetailsScreen = ({route}) => {
   const listing = route.params;
   return (
     <View>
-      <Image style={styles.image} source={{uri: listing.images[0].url}} />
+      <FastImage style={styles.image} source={{uri: listing.images[0].url}} />
       <View style={styles.detailsContainer}>
         <AppText customStyle={styles.title}>{listing.title}</AppText>
         <AppText customStyle={styles.price}>{listing.price}</AppText>
