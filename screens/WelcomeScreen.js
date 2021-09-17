@@ -17,14 +17,14 @@ const WelcomeScreen = ({navigation}) => {
         <AppButton
           title="Login"
           onPress={() => {
-            navigation.navigate('LoginScreen');
+            navigation.navigate('Login');
           }}
         />
         <AppButton
           title="Register"
           color="secondary"
           onPress={() => {
-            navigation.navigate('RegisterScreen');
+            navigation.navigate('Register');
           }}
         />
       </View>

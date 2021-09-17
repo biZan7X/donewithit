@@ -6,6 +6,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import navigationTheme from './navigations/navigationTheme';
 import AppNavigator from './navigations/AppNavigator';
+import AuthNavigator from './navigations/AuthNavigator';
 import OfflineNotice from './components/OfflineNotice';
 
 const App = () => {
@@ -13,7 +14,7 @@ const App = () => {
     <>
       <OfflineNotice />
       <NavigationContainer theme={navigationTheme}>
-        <AppNavigator />
+        <AuthNavigator />
       </NavigationContainer>
     </>
   );
