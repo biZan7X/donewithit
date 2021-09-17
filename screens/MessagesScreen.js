@@ -11,19 +11,19 @@ const initialMessages = [
     id: 1,
     title: 'Bizan',
     details: 'd1',
-    image: require('../assets/mosh.jpg'),
+    image: require('../assets/blue.jpg'),
   },
   {
     id: 2,
     title: 'Bizan',
     details: 'd2',
-    image: require('../assets/mosh.jpg'),
+    image: require('../assets/blue.jpg'),
   },
   {
     id: 3,
     title: 'Bizan',
     details: 'd3',
-    image: require('../assets/mosh.jpg'),
+    image: require('../assets/blue.jpg'),
   },
 ];
 
