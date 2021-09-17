@@ -9,6 +9,7 @@ import AppForm from '../components/AppForm';
 import ErrorMessage from '../components/ErrorMessage';
 
 import authApi from '../api/auth';
+import jwt_decode from 'jwt-decode';
 
 const validationSchema = yup.object({
   email: yup.string().required().email().label('Email'),
@@ -24,7 +25,8 @@ const LoginScreen = () => {
     if (!response.ok) return setLoginError(true);
 
     setLoginError(false);
-    console.log(response.data);
+    const user = jwt_decode(response.data);
+    console.log(user);
   };
 
   return (
