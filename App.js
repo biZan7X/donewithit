@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, Button, Image, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import jwt_decode from 'jwt-decode';
 
 import navigationTheme from './navigations/navigationTheme';
 import AppNavigator from './navigations/AppNavigator';
@@ -16,9 +15,8 @@ const App = () => {
   const [user, setUser] = useState();
 
   const restoreToken = async () => {
-    const token = await authStorage.getToken();
-    if (!token) return null;
-    setUser(jwt_decode(token));
+    const user = await authStorage.getUser();
+    if (user) setUser(user);
   };
 
   useEffect(() => restoreToken(), []);

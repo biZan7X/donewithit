@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import jwt_decode from 'jwt-decode';
 
 const key = 'authToken';
 
@@ -26,4 +27,9 @@ const removeToken = async () => {
   }
 };
 
-export default {storeToken, getToken, removeToken};
+const getUser = async () => {
+  const token = await getToken();
+  return token ? jwt_decode(token) : null;
+};
+
+export default {storeToken, getUser, removeToken};
