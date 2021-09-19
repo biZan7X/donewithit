@@ -1,6 +1,7 @@
 import React, {useContext, useState} from 'react';
 import {StyleSheet, Image} from 'react-native';
 import * as yup from 'yup';
+import jwt_decode from 'jwt-decode';
 
 import Screen from '../components/Screen';
 import AppFormField from '../components/AppFormField';
@@ -10,7 +11,7 @@ import ErrorMessage from '../components/ErrorMessage';
 
 import authApi from '../api/auth';
 import AuthContext from '../auth/context';
-import jwt_decode from 'jwt-decode';
+import authStorage from '../api/storage';
 
 const validationSchema = yup.object({
   email: yup.string().required().email().label('Email'),
@@ -29,6 +30,7 @@ const LoginScreen = () => {
     setLoginError(false);
     const user = jwt_decode(response.data);
     authContext.setUser(user);
+    authStorage.storeToken(response.data);
   };
 
   return (
