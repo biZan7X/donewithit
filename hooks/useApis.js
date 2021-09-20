@@ -9,10 +9,11 @@ export default useApis = apiCall => {
     setLoading(true);
     const res = await apiCall(...args);
     setLoading(false);
-    if (!res.ok) return setError(true);
 
-    setError(false);
+    setError(!res.ok);
     setdata(res.data);
+
+    return res;
   };
 
   return {data, error, loading, request};

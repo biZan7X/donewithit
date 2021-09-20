@@ -28,27 +28,31 @@ const ListingScreen = ({navigation}) => {
   }, []);
 
   return (
-    <Screen style={styles.screen}>
+    <>
       <AnimationActivity visible={loading} />
-      {error && (
-        <>
-          <AppText>Something went wrong could not load the listings..</AppText>
-          <AppButton title="reload" onPress={loadListings} />
-        </>
-      )}
-      <FlatList
-        data={listings}
-        keyExtractor={item => item.id.toString()}
-        renderItem={({item}) => (
-          <Card
-            title={item.title}
-            subTitle={item.price}
-            imageUrl={item.images[0].url}
-            onPress={() => navigation.navigate(routes.LISTINGDETAILS, item)}
-          />
+      <Screen style={styles.screen}>
+        {error && (
+          <>
+            <AppText>
+              Something went wrong could not load the listings..
+            </AppText>
+            <AppButton title="reload" onPress={loadListings} />
+          </>
         )}
-      />
-    </Screen>
+        <FlatList
+          data={listings}
+          keyExtractor={item => item.id.toString()}
+          renderItem={({item}) => (
+            <Card
+              title={item.title}
+              subTitle={item.price}
+              imageUrl={item.images[0].url}
+              onPress={() => navigation.navigate(routes.LISTINGDETAILS, item)}
+            />
+          )}
+        />
+      </Screen>
+    </>
   );
 };
 
